@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simple calculator</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            /* display: none; <- Crashes Chrome on hover */
+            -webkit-appearance: none;
+            margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+        }
+
+        input[type=number] {
+            -moz-appearance:textfield; /* Firefox */
+        }
+    </style>
+</head>
+<body>
+    <div class="container bg-light mt-5 border rounded">
+        <h4 class="text-center my-4"><u>Simple Calculator</u></h4>
+                
+        <div class="px-5">
+            <form action="" class="bg-white">
+                <!-- Form Start -->
+                <div class="bg-light row mb-3">
+                    <div class="col-6">
+                        <label for="first_number" class="form-label">First Number</label>
+                        <input type="number" class="form-control" id="first_number" name="first_number" placeholder="0">
+                    </div>
+                    <div class="col-6">
+                        <label for="second_number" class="form-label">Second Number</label>
+                        <input type="number" class="form-control" id="second_number" name="first_number" placeholder="0">
+                    </div>
+                        <!-- <div class="text-center w-50 mx-auto pt-3">
+                            <input type="number" class="form-control" id="result" name="result" placeholder="Result">
+                        </div> -->
+                    <div class="col-12 mt-5 mb-3">
+                        <div class="text-center">
+                            <a href="#" id="add" class="btn btn-success px-5 btn-lg"> + </a>
+                            <a href="#" id="substract" class="btn btn-danger px-5 btn-lg"> − </a>
+                            <a href="#" id="multiply" class="btn btn-primary px-5 btn-lg"> × </a>
+                            <a href="#" id="divide" class="btn btn-secondary px-5 btn-lg"> ÷ </a>
+                        </div>
+
+                        <div class="text-center w-50 mx-auto pt-3">
+                            <input type="number" class="form-control" id="result" name="result" placeholder="Result" disabled readonly>
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- Form End -->
+            </form>
+        </div>
+
+    </div>
+
+
+    <script>
+        var result = document.getElementById('result');
+
+        var add = document.getElementById('add');
+        add.addEventListener('click', function () {
+            var first_number = parseFloat(document.getElementById('first_number').value);
+            var second_number = parseFloat(document.getElementById('second_number').value);
+            var final = first_number + second_number;
+
+            result.value = final;
+        });
+
+        var substract = document.getElementById('substract');
+        substract.addEventListener('click',function () {
+            var first_number = parseFloat(document.getElementById('first_number').value);
+            var second_number = parseFloat(document.getElementById('second_number').value);
+            var final = first_number - second_number;
+            result.value = final;
+        });
+
+        var multiply = document.getElementById('multiply');
+        multiply.addEventListener('click', function () {
+            var first_number = parseFloat(document.getElementById('first_number').value);
+            var second_number = parseFloat(document.getElementById('second_number').value);
+            var final = first_number * second_number;
+            result.value = final;
+        });
+
+        var divide =  document.getElementById('divide');
+        divide.addEventListener('click',function(){
+            var first_number = parseFloat(document.getElementById('first_number').value);
+            var second_number = parseFloat(document.getElementById('second_number').value);
+            var final = first_number / second_number;
+            result.value = final;
+        });
+
+
+
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
